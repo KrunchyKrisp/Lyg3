@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e63def0-61a1-49cb-aa52-74873a4db83f" name="Changes" comment="Initial">
-      <change afterPath="$PROJECT_DIR$/src/Main.sh" afterDir="false" />
+    <list default="true" id="5e63def0-61a1-49cb-aa52-74873a4db83f" name="Changes" comment="First try">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,6 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Lyg3" />
-      <option name="PROGRAM_PARAMETERS" value="8 10000000 256 false" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,11 +82,18 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1679255624127</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="First try">
+      <created>1681841642642</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1681841642642</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial" />
+    <MESSAGE value="First try" />
+    <option name="LAST_COMMIT_MESSAGE" value="First try" />
   </component>
 </project>

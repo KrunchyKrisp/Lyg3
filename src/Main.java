@@ -1,3 +1,19 @@
+/*
+ * Main.java
+ * Matas Damidavičius INF 3k2g1p 1910621
+ * ND3 variantas 1 - quick sort
+ *
+ * Masyvo elementų rūšiavimas “quick sort” metodu.
+ *
+ * Algoritmo išlygiagretinimas: kiekviena gija pasiema darbą iš sinchronizuotos eilės.
+ * Darbas: bendro masyvo rėžiai, kuriuos reikia išrykiuoti “quick sort” metodu.
+ * Rezultatas:
+ *      Jei rėžių dydis mažiau-lygus pasirinktam grūdo dydžiui - rėžis išrykiuojamas nuosekliai.
+ *      Kitu atveju - rėžis dalijamas su “pivot” į 2 dalis, gauti 2 rėžiai talpinami į eilę.
+ * Jei eilė tučia - gija laukia, tai pažymima atskirame bendrame "gijų laukimo" masyve.
+ * Gijos dirba, kol eilė tampa tučia IR visos gijos laukia.
+ */
+
 import java.util.*;
 
 public class Main extends Thread {
@@ -24,6 +40,23 @@ public class Main extends Thread {
 			)) {
 				System.err.println("Parameters: <number threads 1..16> <workload: 16..100000000> <grainSize: 1..64> <slowMode: true/false>");
 				System.err.println("Not enough parameters: " + Arrays.toString(args));
+				workload = 10_000_000;
+				slowMode = false;
+				double dtime1=0.;
+				for (int i = 0; i < workload; ++i) {
+					data.add(i);
+				}
+				System.out.println("#nThreads #workload #grainSize #timeS #speedup");
+				for (grainSize = 16; grainSize <= 256; grainSize *= 4) {
+					for (nThreads = 1; nThreads <= 8; nThreads *= 2) {
+						shuffle(data);
+						double dtime = makePerformanceTest();
+						dtime1 = nThreads==1 ? dtime : dtime1;
+						double speedup = dtime1 / dtime;
+						System.out.println( nThreads + " " + workload + " " + grainSize  + " " +dtime + String.format(" %.2f", speedup));
+					}
+				}
+
 			} else {
 				slowMode = Boolean.parseBoolean(args[3]);
 				for (int i = 0; i < workload; ++i) {
@@ -56,9 +89,11 @@ public class Main extends Thread {
 	}
 
 	static double makePerformanceTest() throws Exception {
+		threadWaiting = new ArrayList<>();
 		long time0 = System.currentTimeMillis();
 
 		if (nThreads > 1) {
+			jobs.add(new Integer[]{0, workload - 1});
 			// Create and start threads
 			Main[] aThreads = new Main[nThreads];
 			for (int i = 0; i < nThreads; i++) {
