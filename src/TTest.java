@@ -87,7 +87,7 @@ public class TTest extends Thread
 				System.out.println("#nThreads #workload #timeS #speedup");
 
 				double dtime1=0.;
-				for (nThreads = 1; nThreads <= 32; nThreads *= 2)
+				for (nThreads = 1; nThreads <= 16; nThreads *= 2)
 				{
 					double dtime = makePerformanceTest();
 					dtime1 = nThreads==1 ? dtime : dtime1;
