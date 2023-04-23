@@ -1,17 +1,17 @@
 /*
  * Main.java
- * Matas Damidavičius INF 3k2g1p 1910621
+ * Matas Damidavicius INF 3k2g1p 1910621
  * ND3 variantas 1 - quick sort
  *
- * Masyvo elementų rūšiavimas “quick sort” metodu.
+ * Masyvo elementų rusiavimas “quicksort” metodu.
  *
- * Algoritmo išlygiagretinimas: kiekviena gija pasiema darbą iš sinchronizuotos eilės.
- * Darbas: bendro masyvo rėžiai, kuriuos reikia išrikiuoti “quick sort” metodu.
+ * Algoritmo išlygiagretinimas: kiekviena gija pasiima darbą iš sinchronizuotos eilės.
+ * Darbas: bendro masyvo rėžiai [left, right], kuriuos reikia išrikiuoti “quicksort” metodu.
  * Rezultatas:
- *      Jei rėžių dydis mažiau-lygus pasirinktam grūdo dydžiui - rėžis išrikiuojamas nuosekliai.
- *      Kitu atveju - rėžis dalijamas su “pivot” į 2 dalis, gauti 2 rėžiai talpinami į eilę.
- * Jei eilė tučia - gija laukia, tai pažymima atskirame bendrame "gijų laukimo" masyve.
- * Gijos dirba, kol eilė tampa tučia IR visos gijos laukia.
+ * Jei rėžių dydis mažiau-lygus pasirinktam grūdo dydžiui - rėžis išrikiuojamas nuosekliai.
+ * Kitu atveju - rėžis dalijamas su “pivot” į 2 dalis, gauti 2 rėžiai talpinami į eilę.
+ * Jei eilė tuščia - gija laukia, tai pažymima atskirame bendrame "gijų laukimo" masyve.
+ * Gijos dirba, kol eilė turi darbų arba egzistuoja dirbančių gijų.
  */
 
 import java.util.*;
