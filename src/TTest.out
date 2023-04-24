@@ -1,0 +1,20 @@
+Simple system multithreading performance test. Ver 1.3
+Parameters: <number threads 1..16> <workload: 1..100000000>
+#Make auto test: find workload for > 1 sec...
+#nThreads #workload #timeS #speedup
+1 2048 1.16 1.0
+2 2048 0.59 1.966101694915254
+4 2048 0.314 3.6942675159235665
+8 2048 0.17 6.823529411764705
+16 2048 0.19 6.105263157894736
+#completed
+Simple system multithreading performance test. Ver 1.3
+Parameters: <number threads 1..16> <workload: 1..100000000>
+#Make auto test: find workload for > 1 sec...
+#nThreads #workload #timeS #speedup
+1 512 1.826 1.0
+2 512 0.947 1.928194297782471
+4 512 0.503 3.6302186878727634
+8 512 0.27 6.762962962962963
+16 512 0.257 7.105058365758755
+#completed

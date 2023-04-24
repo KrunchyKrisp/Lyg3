@@ -49,13 +49,31 @@ public class Main extends Thread {
 				}
 				for (grainSize = 16; grainSize <= 1024; grainSize *= 4) { //Iteruojame grainSize ir nThreads
 					System.out.println("#nThreads #workload #grainSize #timeS #speedup");
-					for (nThreads = 1; nThreads <= 8; nThreads *= 2) {
+					for (nThreads = 1; nThreads <= 16; nThreads *= 2) {
 						shuffle(data); //Sumaišome masyvą
 						double dtime = makePerformanceTest(); //Išrikiuojame masyvą
 						dtime1 = nThreads == 1 ? dtime : dtime1;
 						double speedup = dtime1 / dtime;
 						System.out.println(nThreads + " " + workload + " " + grainSize + " " + dtime + String.format(" %.2f", speedup));
 					}
+				}
+				//toliau pleciamumo testas
+				System.out.println("Pleciamumo testas:");
+				grainSize = 256;
+				System.out.println("#workload #time1 #time2 #speedup");
+				for (workload = 31250; workload <= 32_000_000; workload *= 2) {
+					data = new ArrayList<>(workload);
+					for (int i = 0; i < workload; ++i) { //Masyvo inicializacija 0..workload-1
+						data.add(i);
+					}
+					nThreads = 1;
+					shuffle(data); //Sumaišome masyvą
+					dtime1 = makePerformanceTest(); //Išrikiuojame masyvą
+					nThreads = 8;
+					shuffle(data); //Sumaišome masyvą
+					double dtime2 = makePerformanceTest();
+					double speedup = dtime1 / dtime2;
+					System.out.println(workload + " " + dtime1 + " " + dtime2 + String.format(" %.2f", speedup));
 				}
 
 			} else {
